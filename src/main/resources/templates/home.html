@@ -46,6 +46,8 @@
     <div class="gifs container">
         <div class="row">
            <h1>Miejsce na wyświetlenie gifów:)</h1>
+            <tr th:each="gif: ${gifs}">
+              <p  th:text="${gif}" /></tr>
         </div>
     </div>
 
