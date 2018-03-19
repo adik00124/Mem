@@ -41,4 +41,12 @@ public class HomeController {
         return "categories";
     }
 
+
+    @GetMapping("/favorites")
+    public String favorite(ModelMap modelMap){
+        modelMap.addAttribute("gifs",gifDao.favorites());
+        return "favorites";
+    }
+
+
 }

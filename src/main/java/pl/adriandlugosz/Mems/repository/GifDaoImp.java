@@ -18,12 +18,12 @@ public class GifDaoImp implements GifDao {
     private static List<Gif> gifs = new ArrayList<>();
 
     static{
-        gifs.add(new Gif(1L, "android-explosion.gif","Adiczek"));
-        gifs.add(new Gif(2L, "ben-and-mike.gif","Dark Lord"));
-        gifs.add(new Gif(3L, "book-dominos.gif","Darth Vader"));
-        gifs.add(new Gif(4L, "compiler-bot.gif","Minionki"));
-        gifs.add(new Gif(5L, "cowboy-coder.gif","Kamil"));
-        gifs.add(new Gif(6L, "infinite-andrew.gif","Marcin_12"));
+        gifs.add(new Gif(1L, "android-explosion.gif","Adiczek",false));
+        gifs.add(new Gif(2L, "ben-and-mike.gif","Dark Lord",true));
+        gifs.add(new Gif(3L, "book-dominos.gif","Darth Vader",false));
+        gifs.add(new Gif(4L, "compiler-bot.gif","Minionki",true));
+        gifs.add(new Gif(5L, "cowboy-coder.gif","Kamil",false));
+        gifs.add(new Gif(6L, "infinite-andrew.gif","Marcin_12",true));
     }
 
     @Override
@@ -39,6 +39,18 @@ public class GifDaoImp implements GifDao {
             }
         }
         return "null";
+    }
+
+    @Override
+    public List<Gif> favorites() {
+        List<Gif> favouriteGifs=new ArrayList<>();
+
+        for (Gif g:gifs){
+            if(g.isFavourite()){
+                favouriteGifs.add(g);
+            }
+        }
+        return favouriteGifs;
     }
 
 }

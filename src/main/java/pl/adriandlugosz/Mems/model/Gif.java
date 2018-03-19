@@ -5,6 +5,15 @@ public class Gif {
     private String name;
     private String userName;
     private Category category;
+    private boolean favourite;
+
+    public boolean isFavourite() {
+        return favourite;
+    }
+
+    public void setFavourite(boolean favourite) {
+        this.favourite = favourite;
+    }
 
     public String getUserName() {
         return userName;
@@ -41,10 +50,11 @@ public class Gif {
         this.name = name;
     }
 
-    public Gif(Long id, String name,String userName) {
+    public Gif(Long id, String name,String userName, boolean favourite) {
         this.id = id;
         this.name = name;
         this.userName=userName;
+        this.favourite=favourite;
     }
 
     public String getGifPath (){
