@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import pl.adriandlugosz.Mems.model.Gif;
 import pl.adriandlugosz.Mems.repository.GifDao;
+import pl.adriandlugosz.Mems.repository.GifDaoImp;
 
 import javax.jws.WebParam;
 
 @Controller
 public class HomeController {
 
+//    default
     @Autowired
     private GifDao gifDao;
 
@@ -24,8 +26,9 @@ public class HomeController {
     }
 
     @GetMapping("/gif/{name}")
-    public String home(@PathVariable String name,ModelMap modelMap){
-        modelMap.addAttribute("names",gifDao.findByName(name));
+    public String gif(@PathVariable String name,ModelMap modelMap){
+        modelMap.addAttribute("names",gifDao.findUserNameByGifName(name));
         return "gif-details";
     }
+
 }
