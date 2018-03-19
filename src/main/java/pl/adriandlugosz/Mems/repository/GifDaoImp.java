@@ -1,15 +1,21 @@
 package pl.adriandlugosz.Mems.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import pl.adriandlugosz.Mems.model.Gif;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
+//    @Scope("singleton")  - only one bean object
+//    @Scope("session") - in every seassion bean is createt
+
 @Component
 public class GifDaoImp implements GifDao {
 
+    // this block is crated before class
     private static List<Gif> gifs = new ArrayList<>();
     private static CatDao catDao = new CatDaoImpl();
 
@@ -28,7 +34,7 @@ public class GifDaoImp implements GifDao {
     }
 
     @Override
-    public String findByName(String memName) {
+    public String findUserNameByGifName (String memName) {
         for (Gif g:gifs) {
             if (g.getName().equals(memName)) {
                 return g.getUserName();
