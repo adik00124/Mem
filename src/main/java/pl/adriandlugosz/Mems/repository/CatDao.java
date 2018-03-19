@@ -7,5 +7,6 @@ import java.util.List;
 public interface CatDao {
 
     List<Category> findAll();
+    Category findByName(String name);
 
 }
