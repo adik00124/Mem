@@ -14,11 +14,10 @@ import java.util.List;
 @Component
 public class GifDaoImp implements GifDao {
 
-
+    // this block is crated before class
     private static List<Gif> gifs = new ArrayList<>();
 
-    // this block is crated before class
-    static {
+    static{
         gifs.add(new Gif(1L, "android-explosion.gif","Adiczek"));
         gifs.add(new Gif(2L, "ben-and-mike.gif","Dark Lord"));
         gifs.add(new Gif(3L, "book-dominos.gif","Darth Vader"));
@@ -29,7 +28,6 @@ public class GifDaoImp implements GifDao {
 
     @Override
     public List<Gif> findAll() {
-
         return gifs;
     }
 
