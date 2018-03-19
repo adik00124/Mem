@@ -1,10 +1,12 @@
 package pl.adriandlugosz.Mems.repository;
 
+import org.springframework.stereotype.Component;
 import pl.adriandlugosz.Mems.model.Gif;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class GifDaoImp implements GifDao {
 
     private List<Gif> gifs = new ArrayList<>();

@@ -17,6 +17,12 @@ public class Gif {
         return id;
     }
     public Gif(){}
+
+    @Override
+    public String toString() {
+        return getGifPath();
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -41,6 +47,6 @@ public class Gif {
     }
 
     public String getGifPath (){
-        return "gifs/"+name+".gif";
+        return "gifs/"+name;
     }
 }
