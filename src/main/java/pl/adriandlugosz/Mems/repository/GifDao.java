@@ -5,8 +5,9 @@ import pl.adriandlugosz.Mems.model.Gif;
 
 import java.util.List;
 
-@Component
+
 public interface GifDao {
     List<Gif> findAll();
+    String findByName(String memName);
 
 }
