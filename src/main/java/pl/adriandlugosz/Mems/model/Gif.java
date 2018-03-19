@@ -57,9 +57,16 @@ public class Gif {
         this.favourite=favourite;
     }
 
+    public Gif(Long id, String name, String userName, Category category) {
+        this.name = name;
+        this.userName = userName;
+        this.category = category;
+    }
+
     public String getGifPath (){
         return "gifs/"+name;
     }
+
 
     public Category getCategory() {
         return category;
@@ -68,4 +75,5 @@ public class Gif {
     public void setCategory(Category category) {
         this.category = category;
     }
+
 }

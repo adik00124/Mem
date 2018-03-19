@@ -9,6 +9,10 @@ import java.util.List;
 public interface GifDao {
     List<Gif> findAll();
     String findUserNameByGifName(String memName);
+
     List<Gif> favorites();
+
+
+    Gif findByName(String name);
 
 }
