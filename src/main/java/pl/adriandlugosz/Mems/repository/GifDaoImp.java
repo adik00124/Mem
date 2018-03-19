@@ -43,4 +43,9 @@ public class GifDaoImp implements GifDao {
         return "null";
     }
 
+    @Override
+    public Gif findByName(String name) {
+        return gifs.stream().filter(g->g.getName().equals(name)).findFirst().get();
+    }
+
 }
