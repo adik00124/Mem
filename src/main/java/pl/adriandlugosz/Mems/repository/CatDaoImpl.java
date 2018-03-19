@@ -5,17 +5,20 @@ import pl.adriandlugosz.Mems.model.Category;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Component
 public class CatDaoImpl implements CatDao {
 
-    private List<Category> findAll = new ArrayList<>();
+    private static List<Category> categories = new ArrayList<>();
+
+    static {
+        categories.add(new Category("Android"));
+        categories.add(new Category("Funny"));
+        categories.add(new Category("Programming"));
+    }
 
     @Override
     public List<Category> findAll(){
-        List<Category> list = new ArrayList<>();
-        list.add(new Category("Android"));
-        list.add(new Category("Funny"));
-        list.add(new Category("Programming"));
-        return list;
+        return categories;
     }
 }

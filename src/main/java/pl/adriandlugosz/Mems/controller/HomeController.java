@@ -17,7 +17,7 @@ import javax.jws.WebParam;
 public class HomeController {
 
     @Autowired
-    private static CatDao catDao;
+    private CatDao catDao;
     @Autowired
     private GifDao gifDao;
 
@@ -27,15 +27,16 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/gif/{name}")
+    public String home(@PathVariable String name,ModelMap modelMap){
+        modelMap.addAttribute("names",gifDao.findByName(name));
+        return "gif-details";
+    }
+
     @GetMapping("/categories")
     public String categories(ModelMap modelMap) {
         modelMap.put("categories", catDao.findAll());
         return "categories";
     }
 
-    @GetMapping("/gif/{name}")
-    public String home(@PathVariable String name,ModelMap modelMap){
-        modelMap.addAttribute("names",gifDao.findByName(name));
-        return "gif-details";
-    }
 }

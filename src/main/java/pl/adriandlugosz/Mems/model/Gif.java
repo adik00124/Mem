@@ -4,6 +4,7 @@ public class Gif {
     private Long id;
     private String name;
     private String userName;
+    private Category category;
 
     public String getUserName() {
         return userName;
@@ -48,5 +49,13 @@ public class Gif {
 
     public String getGifPath (){
         return "gifs/"+name;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
