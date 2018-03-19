@@ -21,4 +21,13 @@ public class CatDaoImpl implements CatDao {
     public List<Category> findAll(){
         return categories;
     }
+
+    public Category findByName(String name){
+        for(Category cat : categories){
+            if(cat.getName().equals(name)){
+                return cat;
+            }
+        }
+        return null;
+    }
 }

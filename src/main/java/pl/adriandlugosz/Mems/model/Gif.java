@@ -47,6 +47,12 @@ public class Gif {
         this.userName=userName;
     }
 
+    public Gif(Long id, String name, String userName, Category category) {
+        this.name = name;
+        this.userName = userName;
+        this.category = category;
+    }
+
     public String getGifPath (){
         return "gifs/"+name;
     }
