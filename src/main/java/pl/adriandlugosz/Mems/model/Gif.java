@@ -34,4 +34,5 @@ public class Gif {
     public String getGifPath (){
         return "gifs/"+name;
     }
+
 }
