@@ -49,7 +49,9 @@ public class HomeController {
 
     @PostMapping("/home/search")
     public String findGif(@RequestParam String name,ModelMap modelMap) {
-       modelMap.addAttribute("gif", gifDao.findByName(name));
-        return "gif-details";
+       modelMap.put("gifs", gifDao.findAll(name));
+        return "home";
     }
+
+
 }
