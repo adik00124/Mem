@@ -13,39 +13,41 @@
     <!--<title th:text="'giflib | ' + ${gif.name}">Kwejk</title>-->
 </head>
 <body>
+<div class="wrapper">
 
-<div id="menu" class="alt" th:include="fragments/fragments :: menu"></div>
+    <div id="menu" class="alt" th:include="fragments/fragments :: menu"></div>
 
 
-<div id="search" class="alt" th:include="fragments/fragments :: search">
+    <div id="search" class="alt" th:include="fragments/fragments :: search">
 
-</div>
-
-<div class="gif-detail container">
-    <div class="frame row">
-        <div class="col s12">
-            <img th:src="@{'/gifs/' + ${gif.name}}" alt="gif"/>
-            <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>
-        </div>
     </div>
-    <div class="row">
-        <div class="col s12 l6">
-            <div class="meta row">
-                <div class="col s3">
-                    <img class="circle" src="http://api.adorable.io/avatars/205/avatar" alt="avatar"/>
-                </div>
-                <div class="col s9">
 
-
-                    <p th:text="${gif.userName}"></p>
-
-                </div>
+    <div class="gif-detail container">
+        <div class="frame row">
+            <div class="col s12">
+                <img th:src="@{'/gifs/' + ${gif.name}}" alt="gif"/>
+                <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>
             </div>
         </div>
-        <div class="col s12 l6">
-            <div class="share">
-                <a class="btn right" href="#">Copy</a>
-                <span th:text="'http://gif.fy/' + ${gif.name}">URL</span>
+        <div class="row">
+            <div class="col s12 l6">
+                <div class="meta row">
+                    <div class="col s3">
+                        <img class="circle" src="http://api.adorable.io/avatars/205/avatar" alt="avatar"/>
+                    </div>
+                    <div class="col s9">
+
+
+                        <p th:text="${gif.userName}"></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 l6">
+                <div class="share">
+                    <a class="btn right" href="#">Copy</a>
+                    <span th:text="'http://gif.fy/' + ${gif.name}">URL</span>
+                </div>
             </div>
         </div>
     </div>

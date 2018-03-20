@@ -13,19 +13,21 @@
     <title>giflib | Home</title>
 </head>
 <body>
-<div id="menu" class="alt" th:include="fragments/fragments :: menu">
-</div>
-<div id="search" class="alt" th:include="fragments/fragments :: search">
-</div>
+<div class="wrapper">
+    <div id="menu" class="alt" th:include="fragments/fragments :: menu">
+    </div>
+    <div id="search" class="alt" th:include="fragments/fragments :: search">
+    </div>
 
-<div class="gifs container">
-    <h1 th:if="${gifs.isEmpty()}">Nie znaleziono gifów</h1>
-    <div class="row">
-        <div th:each="gif : ${gifs}" class="col s12 l4">
-            <a th:href="@{|/gif/${gif.name}|}">
-                <img th:src="${gif.getGifPath()}"/>
-                <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>
-            </a>
+    <div class="gifs container">
+        <h1 th:if="${gifs.isEmpty()}">Nie znaleziono gifów</h1>
+        <div class="row">
+            <div th:each="gif : ${gifs}" class="col s12 l4">
+                <a th:href="@{|/gif/${gif.name}|}">
+                    <img th:src="${gif.getGifPath()}"/>
+                    <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>
+                </a>
+            </div>
         </div>
     </div>
 </div>

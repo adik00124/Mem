@@ -2,6 +2,10 @@
 
 body {
     font-family: 'varela round', sans-serif;
+    height: 100%;
+}
+html{
+    height: 100%;
 }
 
 nav {
@@ -299,4 +303,5 @@ nav ul li.active, nav ul li:hover {
     .chip {
         margin-left: 0.8rem;
     }
+
 }
