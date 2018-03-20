@@ -13,37 +13,12 @@
     <title th:text="'giflib | ' + ${category.name}">Category</title>
 </head>
 <body>
-<div class="navbar-fixed">
-    <nav>
-        <div class="container">
-            <a th:href="@{/}" class="brand-logo">gif<span>.</span>lib</a>
-            <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a th:href="@{/}">Explore</a></li>
-                <li><a th:href="@{/categories}">Categories</a></li>
-                <li><a th:href="@{/favorites}">Favorites</a></li>
-            </ul>
-            <ul id="mobile-nav" class="side-nav">
-                <li><a th:href="@{/}">Explore</a></li>
-                <li><a th:href="@{/categories}">Categories</a></li>
-                <li><a th:href="@{/favorites}">Favorites</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
-<div class="search-bar container">
-    <div class="row">
-        <div class="col s12">
-            <form action="/home/search" method="post">
-                <div class="input-field">
-                    <input name="name" type="search" placeholder="Wyszukiwanie..." required="required" autocomplete="off"/>
-                    <input class="material-icons" type="submit" value="search"/>
 
-                </div>
-            </form>
-        </div>
+  <div id="menu" class="alt" th:include="/fragments/fragments :: menu" >
     </div>
-</div>
+  <div id="search" class="alt" th:include="/fragments/fragments :: search" >
+    </div>
+
 <div class="gifs container">
     <div class="chip" th:text="${category.name}">category name</div>
     <div class="row">
