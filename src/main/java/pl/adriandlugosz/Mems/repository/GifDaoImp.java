@@ -48,6 +48,7 @@ public class GifDaoImp implements GifDao {
     }
 
 
+
     @Override
     public List<Gif> favorites() {
         List<Gif> favouriteGifs=new ArrayList<>();
@@ -66,6 +67,17 @@ public class GifDaoImp implements GifDao {
     public Gif findByName(String name) {
         return gifs.stream().filter(g->g.getName().equals(name)).findFirst().get();
     }
+
+    public List<Gif> findAll(String memName) {
+        List<Gif> list = new ArrayList<>();
+        for (Gif g : gifs) {
+            if (g.getName().contains(memName)) {
+                list.add(g);
+            }
+        }
+        return list ;
+    }
+
 
 
 

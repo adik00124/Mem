@@ -47,9 +47,10 @@
     <div class="gifs container">
         <div class="row">
 
-            <tr th:each="gif: ${gifs}">
+
+            <div th:each="gif: ${gifs}">
               <img class="col s12 l4" th:src="${gif.getGifPath()}"/>
-            </tr>
+            </div>
 
         </div>
     </div>
