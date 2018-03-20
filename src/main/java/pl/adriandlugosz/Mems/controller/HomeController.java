@@ -1,6 +1,5 @@
 package pl.adriandlugosz.Mems.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -39,6 +38,13 @@ public class HomeController {
     public String categories(ModelMap modelMap) {
         modelMap.put("categories", catDao.findAll());
         return "categories";
+    }
+
+    @GetMapping("/category/{id}")
+    public String category(@PathVariable Long id, ModelMap modelMap){
+        modelMap.put("category", catDao.findById(id));
+        modelMap.put("gifs", gifDao.findAllByCategory(catDao.findById(id).getName()));
+        return "category";
     }
 
 }

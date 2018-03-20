@@ -2,6 +2,8 @@ package pl.adriandlugosz.Mems.repository;
 
 import org.springframework.stereotype.Component;
 import pl.adriandlugosz.Mems.model.Category;
+import pl.adriandlugosz.Mems.model.Gif;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,5 +31,9 @@ public class CatDaoImpl implements CatDao {
             }
         }
         return null;
+    }
+
+    public Category findById(Long id){
+        return categories.stream().filter(g->g.getId() == id).findFirst().get();
     }
 }

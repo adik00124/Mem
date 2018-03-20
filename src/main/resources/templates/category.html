@@ -46,7 +46,11 @@
 <div class="gifs container">
     <div class="chip" th:text="${category.name}">category name</div>
     <div class="row">
-        <h1>Miejsce na wyświetlenie gifów</h1>
+        <tr th:each="gif: ${gifs}">
+            <a th:href="@{'/gif/' + ${gif.name}}">
+                <img class="col s12 l4" th:src="'/'+${gif.getGifPath()}"/>
+            </a>
+        </tr>
     </div>
 </div>
 

@@ -17,6 +17,7 @@ public class Gif {
     public Long getId() {
         return id;
     }
+
     public Gif(){}
 
     @Override

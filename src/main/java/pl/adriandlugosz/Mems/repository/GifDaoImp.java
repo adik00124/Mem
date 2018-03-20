@@ -48,4 +48,15 @@ public class GifDaoImp implements GifDao {
         return gifs.stream().filter(g->g.getName().equals(name)).findFirst().get();
     }
 
+    @Override
+    public List<Gif> findAllByCategory(String categoryName){
+        List<Gif> list = new ArrayList<>();
+        for(Gif gif : findAll()){
+            if (gif.getCategory().getName().equals(categoryName)){
+                list.add(gif);
+            }
+        }
+        return list;
+    }
+
 }
