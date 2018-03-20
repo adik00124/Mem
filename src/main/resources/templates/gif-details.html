@@ -4,56 +4,57 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="icon" th:href="@{/favicon.png}" />
+    <link rel="icon" th:href="@{/favicon.png}"/>
 
-    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" th:href="@{/app.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" th:href="@{/app.css}"/>
 
     <!--<title th:text="'giflib | ' + ${gif.name}">Kwejk</title>-->
 </head>
 <body>
 
-            <div id="menu" class="alt" th:include="fragments/fragments :: menu" ></div>
+<div id="menu" class="alt" th:include="fragments/fragments :: menu"></div>
 
 
-        <div id="search" class="alt" th:include="fragments/fragments :: search" >
+<div id="search" class="alt" th:include="fragments/fragments :: search">
 
-    </div>
+</div>
 
-    <div class="gif-detail container">
-        <div class="frame row">
-            <div class="col s12">
-                <img th:src="@{'/gifs/' + ${gif.name}}" alt="gif" />
-                <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>
-            </div>
+<div class="gif-detail container">
+    <div class="frame row">
+        <div class="col s12">
+            <img th:src="@{'/gifs/' + ${gif.name}}" alt="gif"/>
+            <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>
         </div>
-        <div class="row">
-            <div class="col s12 l6">
-                <div class="meta row">
-                    <div class="col s3">
-                        <img class="circle" src="http://api.adorable.io/avatars/205/avatar" alt="avatar" />
-                    </div>
-                    <div class="col s9">
-
-
-                        <p th:text="${gif.userName}"></p>
-
-                    </div>
+    </div>
+    <div class="row">
+        <div class="col s12 l6">
+            <div class="meta row">
+                <div class="col s3">
+                    <img class="circle" src="http://api.adorable.io/avatars/205/avatar" alt="avatar"/>
                 </div>
-            </div>
-            <div class="col s12 l6">
-                <div class="share">
-                    <a class="btn right" href="#">Copy</a>
-                    <span th:text="'http://gif.fy/' + ${gif.name}">URL</span>
+                <div class="col s9">
+
+
+                    <p th:text="${gif.userName}"></p>
+
                 </div>
             </div>
         </div>
+        <div class="col s12 l6">
+            <div class="share">
+                <a class="btn right" href="#">Copy</a>
+                <span th:text="'http://gif.fy/' + ${gif.name}">URL</span>
+            </div>
+        </div>
     </div>
-    <!--<p th:text="${names}"/>-->
+</div>
+<!--<p th:text="${names}"/>-->
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
 <script th:src="@{/app.js}"></script>
+<footer class="page_footer center-align" th:include="fragments/fragments :: footer"></footer>
 </body>
 </html>

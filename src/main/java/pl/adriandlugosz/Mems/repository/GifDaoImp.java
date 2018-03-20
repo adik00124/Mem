@@ -42,10 +42,10 @@ public class GifDaoImp implements GifDao {
     public String findUserNameByGifName(String memName) {
         for (Gif g : gifs) {
             if (g.getName().equals(memName)) {
-                return g.getUserName();
+                g.getUserName();
             }
         }
-        return "null";
+        return "Not found";
     }
 
 
