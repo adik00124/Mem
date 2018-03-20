@@ -1,6 +1,5 @@
 package pl.adriandlugosz.Mems.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -47,6 +46,13 @@ public class HomeController {
         return "categories";
     }
 
+    @GetMapping("/category/{id}")
+    public String category(@PathVariable Long id, ModelMap modelMap){
+        modelMap.put("category", catDao.findById(id));
+        modelMap.put("gifs", gifDao.findAllByCategory(catDao.findById(id).getName()));
+        return "category";
+    }
+
     @GetMapping("/favorites")
     public String favorite(ModelMap modelMap) {
         modelMap.addAttribute("gifs", gifDao.favorites());
@@ -54,8 +60,21 @@ public class HomeController {
     }
 
     @PostMapping("/home/search")
-    public String findGif(@RequestParam String name,ModelMap modelMap) {
+    public String serach(@RequestParam String name,ModelMap modelMap) {
+        if(isCategory(name)){
+            return "redirect:/category/" + catDao.findByName(name).getId();
+        }
        modelMap.put("gifs", gifDao.findAll(name));
         return "home";
     }
+
+    public boolean isCategory(String searchRequest){
+        for(Category category : catDao.findAll()) {
+            if (searchRequest.toLowerCase().equals(category.getName().toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
