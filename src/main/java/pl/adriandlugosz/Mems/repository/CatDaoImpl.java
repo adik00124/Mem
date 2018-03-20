@@ -26,7 +26,7 @@ public class CatDaoImpl implements CatDao {
 
     public Category findByName(String name){
         for(Category cat : categories){
-            if(cat.getName().equals(name)){
+            if(cat.getName().toLowerCase().equals(name.toLowerCase())){
                 return cat;
             }
         }

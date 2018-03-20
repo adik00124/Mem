@@ -60,9 +60,21 @@ public class HomeController {
     }
 
     @PostMapping("/home/search")
-    public String findGif(@RequestParam String name,ModelMap modelMap) {
+    public String serach(@RequestParam String name,ModelMap modelMap) {
+        if(isCategory(name)){
+            return "redirect:/category/" + catDao.findByName(name).getId();
+        }
        modelMap.put("gifs", gifDao.findAll(name));
         return "home";
+    }
+
+    public boolean isCategory(String searchRequest){
+        for(Category category : catDao.findAll()) {
+            if (searchRequest.toLowerCase().equals(category.getName().toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
