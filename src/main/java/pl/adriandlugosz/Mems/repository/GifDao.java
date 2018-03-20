@@ -15,4 +15,8 @@ public interface GifDao {
 
     Gif findByName(String name);
 
+
+
+    List<Gif> findAll(String memName);
+
 }
