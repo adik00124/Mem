@@ -7,6 +7,7 @@ import pl.adriandlugosz.Mems.model.Gif;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 //    @Scope("singleton")  - only one bean object
@@ -22,12 +23,13 @@ public class GifDaoImp implements GifDao {
 
 
     static{
-        gifs.add(new Gif(1L, "android-explosion.gif","Adiczek", catDao.findByName("Android")));
-        gifs.add(new Gif(2L, "ben-and-mike.gif","Dark Lord", catDao.findByName("Funny")));
-        gifs.add(new Gif(3L, "book-dominos.gif","Darth Vader",catDao.findByName("Funny")));
-        gifs.add(new Gif(4L, "compiler-bot.gif","Minionki", catDao.findByName("Funny")));
-        gifs.add(new Gif(5L, "cowboy-coder.gif","Kamil", catDao.findByName("Programming")));
-        gifs.add(new Gif(6L, "infinite-andrew.gif","Marcin_12", catDao.findByName("Programming")));
+        gifs.add(new Gif(1L, "android-explosion.gif","Adiczek", catDao.findByName("Android"),false));
+        gifs.add(new Gif(2L, "ben-and-mike.gif","Dark Lord", catDao.findByName("Funny"),true));
+        gifs.add(new Gif(3L, "book-dominos.gif","Darth Vader",catDao.findByName("Funny"),false));
+        gifs.add(new Gif(4L, "compiler-bot.gif","Minionki", catDao.findByName("Funny"),true));
+        gifs.add(new Gif(5L, "cowboy-coder.gif","Kamil", catDao.findByName("Programming"),false));
+        gifs.add(new Gif(6L, "infinite-andrew.gif","Marcin_12", catDao.findByName("Programming"),true));
+
 
     }
 
@@ -49,6 +51,21 @@ public class GifDaoImp implements GifDao {
 
 
     @Override
+    public List<Gif> favorites() {
+        /*
+        List<Gif> favouriteGifs=new ArrayList<>();
+
+        for (Gif g:gifs){
+            if(g.isFavorite()){
+                favouriteGifs.add(g);
+            }
+        }*/
+        return gifs.stream().filter(gif -> gif.isFavorite()).collect(Collectors.toList());
+    }
+
+
+
+    @Override
     public Gif findByName(String name) {
         return gifs.stream().filter(g->g.getName().equals(name)).findFirst().get();
     }
@@ -62,6 +79,7 @@ public class GifDaoImp implements GifDao {
         }
         return list ;
     }
+
 
 
 

@@ -47,11 +47,15 @@ public class HomeController {
         return "categories";
     }
 
+    @GetMapping("/favorites")
+    public String favorite(ModelMap modelMap) {
+        modelMap.addAttribute("gifs", gifDao.favorites());
+        return "favorites";
+    }
+
     @PostMapping("/home/search")
     public String findGif(@RequestParam String name,ModelMap modelMap) {
        modelMap.put("gifs", gifDao.findAll(name));
         return "home";
     }
-
-
 }
