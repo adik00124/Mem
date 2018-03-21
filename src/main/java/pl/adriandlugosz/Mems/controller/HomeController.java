@@ -47,7 +47,7 @@ public class HomeController {
     }
 
     @GetMapping("/category/{id}")
-    public String category(@PathVariable Long id, ModelMap modelMap){
+    public String category(@PathVariable Long id, ModelMap modelMap) {
         modelMap.put("category", catDao.findById(id));
         modelMap.put("gifs", gifDao.findAllByCategory(catDao.findById(id).getName()));
         return "category";
@@ -59,22 +59,33 @@ public class HomeController {
         return "favorites";
     }
 
-    @PostMapping("/home/search")
-    public String serach(@RequestParam String name,ModelMap modelMap) {
-        if(isCategory(name)){
+    @GetMapping("/home/search")
+    public String serach(@RequestParam String name, ModelMap modelMap) {
+        if (isCategory(name)) {
             return "redirect:/category/" + catDao.findByName(name).getId();
         }
-       modelMap.put("gifs", gifDao.findAll(name));
+        modelMap.put("gifs", gifDao.findAll(name));
         return "home";
     }
 
-    public boolean isCategory(String searchRequest){
-        for(Category category : catDao.findAll()) {
+    public boolean isCategory(String searchRequest) {
+        for (Category category : catDao.findAll()) {
             if (searchRequest.toLowerCase().equals(category.getName().toLowerCase())) {
                 return true;
             }
         }
         return false;
     }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "admin";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
 
 }
