@@ -47,7 +47,7 @@ public class HomeController {
     }
 
     @GetMapping("/category/{id}")
-    public String category(@PathVariable Long id, ModelMap modelMap) {
+    public String category(@PathVariable int id, ModelMap modelMap) {
         modelMap.put("category", catDao.findById(id));
         modelMap.put("gifs", gifDao.findAllByCategory(catDao.findById(id).getName()));
         return "category";

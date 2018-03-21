@@ -23,13 +23,12 @@ public class GifDaoImp implements GifDao {
 
 
     static{
-        gifs.add(new Gif(1L, "android-explosion.gif","Adiczek", catDao.findByName("Android"),false));
-        gifs.add(new Gif(2L, "ben-and-mike.gif","Dark Lord", catDao.findByName("Funny"),true));
-        gifs.add(new Gif(3L, "book-dominos.gif","Darth Vader",catDao.findByName("Funny"),false));
-        gifs.add(new Gif(4L, "compiler-bot.gif","Minionki", catDao.findByName("Funny"),true));
-        gifs.add(new Gif(5L, "cowboy-coder.gif","Kamil", catDao.findByName("Programming"),false));
-        gifs.add(new Gif(6L, "infinite-andrew.gif","Marcin_12", catDao.findByName("Programming"),true));
-
+        gifs.add(new Gif(1, "android-explosion.gif","Adiczek", catDao.findByName("Android"),false));
+        gifs.add(new Gif(2, "ben-and-mike.gif","Dark Lord", catDao.findByName("Funny"),true));
+        gifs.add(new Gif(3, "book-dominos.gif","Darth Vader",catDao.findByName("Funny"),false));
+        gifs.add(new Gif(4, "compiler-bot.gif","Minionki", catDao.findByName("Funny"),true));
+        gifs.add(new Gif(5, "cowboy-coder.gif","Kamil", catDao.findByName("Programming"),false));
+        gifs.add(new Gif(6, "infinite-andrew.gif","Marcin_12", catDao.findByName("Programming"),true));
 
     }
 

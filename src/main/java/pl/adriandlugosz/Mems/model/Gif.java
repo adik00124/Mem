@@ -1,7 +1,7 @@
 package pl.adriandlugosz.Mems.model;
 
 public class Gif {
-    private Long id;
+    private int id;
     private String name;
     private String userName;
     private Category category;
@@ -23,7 +23,7 @@ public class Gif {
         this.userName = userName;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
@@ -34,7 +34,7 @@ public class Gif {
         return getGifPath();
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -46,16 +46,17 @@ public class Gif {
         this.name = name;
     }
 
-    public Gif(Long id, String name) {
+    public Gif(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Gif(Long id, String name, String userName, Category category,boolean favorite) {
+    public Gif(int id, String name, String userName, Category category,boolean favorite) {
         this.name = name;
         this.userName = userName;
         this.category = category;
         this.favorite=favorite;
+        this.id=id;
     }
 
     public String getGifPath (){

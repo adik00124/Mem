@@ -33,7 +33,7 @@ public class CatDaoImpl implements CatDao {
         return null;
     }
 
-    public Category findById(Long id){
+    public Category findById(int id){
         return categories.stream().filter(g->g.getId() == id).findFirst().get();
     }
 }

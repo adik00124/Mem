@@ -8,6 +8,6 @@ public interface CatDao {
 
     List<Category> findAll();
     Category findByName(String name);
-    Category findById(Long id);
+    Category findById(int id);
 
 }
